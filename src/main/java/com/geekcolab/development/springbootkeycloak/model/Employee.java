@@ -1,4 +1,4 @@
-package com.geekcolab.development.springbootkeycloak;
+package com.geekcolab.development.springbootkeycloak.model;
 
 import lombok.*;
 
