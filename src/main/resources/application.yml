@@ -1,0 +1,35 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: orderService
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?createDatabaseIfNotExist=true
+#    &allowPublicKeyRetrival=true&useSSL=false
+    username: root
+    password: P@ss4%mysql%
+    driverClassName: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: false
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+keycloak:
+  auth-server-url: http://localhost:8083/auth
+  realm: demo
+  resource: springboot-keycloak
+  public-client: true
+  bearer-only: true
